@@ -2,6 +2,7 @@ language: python
 python:
     - "2.7"
     - "3.5"
+    - "3.6"
 
 env:
     - DB=sqlite
@@ -15,7 +16,7 @@ install:
     - travis_retry npm update
     - if [[ $DB == postgres ]]; then travis_retry pip install -q psycopg2; fi
     - travis_retry pip install -q -U setuptools
-    - travis_retry pip install -q -r requirements.txt
+    - travis_retry pip install -r requirements.txt
     - travis_retry pip install -q codecov
     - travis_retry gem install sass
     - python manage.py collectstatic --noinput --settings=inboxen.tests.settings
@@ -26,8 +27,6 @@ matrix:
       env: TOX_ENV=docs
       install: pip install tox
       script: tox -e $TOX_ENV
-  allow_failures:
-    - python: "3.5"
 
 script:
     - coverage run --branch  manage.py test --settings=inboxen.tests.settings

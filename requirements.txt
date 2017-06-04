@@ -26,8 +26,7 @@ lxml
 markdown-newtab
 premailer
 progress
-python-daemon<1.7
 pytz
-salmon-mail==2
+git+https://github.com/moggers87/salmon@4855991a0af1ea57bfdcd222872e6c3bafad197c#egg=salmon
 simplejson
 wagtail>=1.9,<1.10
